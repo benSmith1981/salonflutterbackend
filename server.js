@@ -85,8 +85,8 @@ app.post('/login', async (req, res) => {
       console.error(error);
       res.status(500).json({ message: 'Login failed' });
     }
-  });
+});
     
-  app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-  });
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
