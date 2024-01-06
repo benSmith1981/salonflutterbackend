@@ -37,8 +37,12 @@ app.post('/register', async (req, res) => {
       return res.status(400).json({ message: 'Email already registered' });
     }
 
-    // Hash the password before storing it
-    const hashedPassword = await bcrypt.hash(password, 10);
+    // Generate a salt for password hashing
+    const saltRounds = 10; // You can adjust the number of rounds for security
+    const salt = bcrypt.genSaltSync(saltRounds);
+
+    // Hash the password with the generated salt
+    const hashedPassword = bcrypt.hashSync(password, salt);
 
     // Create a new user
     const newUser = new User({
