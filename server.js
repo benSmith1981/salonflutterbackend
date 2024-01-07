@@ -63,7 +63,7 @@ app.post('/register', async (req, res) => {
 app.post('/login', async (req, res) => {
   try {
       const { email, password } = req.body;
-
+      console.log(req.body)
       // Check if the user exists
       const user = await User.findOne({ email });
       if (!user) {
