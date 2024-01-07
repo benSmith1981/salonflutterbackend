@@ -43,7 +43,7 @@ app.post('/register', async (req, res) => {
 
     // Hash the password with the generated salt
     const hashedPassword = bcrypt.hashSync(password, salt);
-
+    console.log(hashedPassword)
     // Create a new user
     const newUser = new User({
       email,
