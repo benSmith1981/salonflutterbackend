@@ -38,11 +38,11 @@ app.post('/register', async (req, res) => {
     }
 
     // Generate a salt for password hashing
-    // const saltRounds = 10; // You can adjust the number of rounds for security
-    // const salt = bcrypt.genSaltSync(saltRounds);
+    const saltRounds = 10; // You can adjust the number of rounds for security
+    const salt = bcrypt.genSaltSync(saltRounds);
 
-    // // Hash the password with the generated salt
-    // const hashedPassword = bcrypt.hashSync(password, salt);
+    // Hash the password with the generated salt
+    const hashedPassword = bcrypt.hashSync(password, salt);
 
     // Create a new user
     const newUser = new User({
